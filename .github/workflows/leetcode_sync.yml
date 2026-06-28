@@ -1,8 +1,8 @@
 name: Sync LeetCode Past History
 on:
-  workflow_dispatch: # Allows you to manually click a button to run it right now
+  workflow_dispatch:
   schedule:
-    - cron: "0 8 * * *" # Keeps it running daily for future problems
+    - cron: "0 8 * * *"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,3 +13,4 @@ jobs:
           github-token: ${{ github.token }}
           leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
           leetcode-session: ${{ secrets.LEETCODE_SESSION }}
+          filter-duplicate-secs: 86400 # Prevents API timeout crashes
