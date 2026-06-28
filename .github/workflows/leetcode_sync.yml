@@ -1,0 +1,15 @@
+name: Sync LeetCode Past History
+on:
+  workflow_dispatch: # Allows you to manually click a button to run it right now
+  schedule:
+    - cron: "0 8 * * *" # Keeps it running daily for future problems
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync Past and Present Solutions
+        uses: joshcai/leetcode-sync@v1.7
+        with:
+          github-token: ${{ github.token }}
+          leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
+          leetcode-session: ${{ secrets.LEETCODE_SESSION }}
