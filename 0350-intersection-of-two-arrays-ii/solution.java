@@ -8,7 +8,7 @@ class Solution {
 
                 if (nums1[i] == nums2[j]) {
                     result.add(nums2[j]);
-                    nums2[j] = -1;   // mark as used
+                    nums2[j] = -1;   
                     break;
                 }
 
